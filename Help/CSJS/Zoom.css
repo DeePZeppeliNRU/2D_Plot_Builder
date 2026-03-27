@@ -1,0 +1,66 @@
+﻿/* Убедимся, что html и body занимают всю высоту контента */
+html, body {
+    height: auto; /* Высота зависит от контента */
+    min-height: 100vh; /* Минимальная высота — высота окна */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Заголовок и текст */
+header, .text-section {
+    text-align: center;
+    padding: 20px;
+    background-color: #fof8ff;
+}
+
+/* Контейнер с изображением */
+.image-container {
+    width: 400px;
+    height: 224px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    position: relative; /* Для позиционирования */
+    z-index: 2; /* Находится над overlay */
+    margin: 20px auto; /* Центрирование и отступ */
+}
+
+/* Изображение */
+.zoomable-image {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease; /* Плавное увеличение */
+    object-fit: cover; /* Сохраняет пропорции изображения */
+}
+
+/* Затемнение фона */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(96, 96, 96, 0.75); /* Полупрозрачный серый цвет */
+    opacity: 0; /* Изначально невидим */
+    transition: opacity 0.3s ease; /* Плавное появление */
+    pointer-events: none; /* Чтобы клики проходили сквозь overlay */
+    z-index: 1; /* Находится под контейнером с изображением */
+}
+
+/* Увеличение изображения */
+.image-container.zoomed {
+    position: fixed; /* Фиксированное позиционирование */
+    top: 50%; /* Центрирование по вертикали */
+    left: 50%; /* Центрирование по горизонтали */
+    width: 1000px; /* Ширина контейнера */
+    height: 562px; /* Высота контейнера */
+    transform: translate(-50%, -50%); /* Центрирование */
+    z-index: 3; /* Находится над overlay */
+}
+
+/* Показываем overlay при увеличении */
+.overlay.active {
+    opacity: 1; /* Делаем overlay видимым */
+    pointer-events: auto; /* Блокируем клики на фоне */
+}
