@@ -20,3 +20,5 @@ markdown
 2. Запустите файл `main.py`:
    ```bash
    python main.py
+
+   [📥 Скачать готовую версию для Windows 11 (.zip)]https://github.com/DeePZeppeliNRU/2D_Plot_Builder/releases/tag/v2.1.RC4.b
